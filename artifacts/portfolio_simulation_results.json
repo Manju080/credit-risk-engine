@@ -1,0 +1,19 @@
+{
+    "test_cohort_size": 2594,
+    "total_requested_capital": 642182874.35,
+    "baseline": {
+        "approved_count": 588,
+        "approved_rate": 0.2266769468003084,
+        "approved_capital": 45462507.9,
+        "review_count": 470,
+        "declined_count": 1536,
+        "declined_capital": 499974643.52
+    },
+    "advisor_impact": {
+        "rescued_borrowers": 1890,
+        "rescued_capital_unlocked": 161483330.70599997,
+        "new_total_approved": 2478,
+        "new_approval_rate": 0.9552814186584425,
+        "origination_lift_pct": 321.42857142857144
+    }
+}

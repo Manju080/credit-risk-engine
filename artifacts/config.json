@@ -1,0 +1,48 @@
+{
+    "model_version": "1.0.0-path-b",
+    "trained_date": "2026-10-29",
+    "feature_cols": [
+        "age",
+        "gender",
+        "education_level",
+        "employment_status",
+        "job_title",
+        "region",
+        "monthly_income_usd",
+        "monthly_expenses_usd",
+        "savings_usd",
+        "credit_score",
+        "loan_type",
+        "loan_amount_usd",
+        "loan_term_months",
+        "loan_interest_rate_pct"
+    ],
+    "cat_cols": [
+        "gender",
+        "education_level",
+        "employment_status",
+        "job_title",
+        "region",
+        "loan_type"
+    ],
+    "num_cols": [
+        "age",
+        "monthly_income_usd",
+        "monthly_expenses_usd",
+        "savings_usd",
+        "credit_score",
+        "loan_amount_usd",
+        "loan_term_months",
+        "loan_interest_rate_pct"
+    ],
+    "thresholds": {
+        "low_risk_max": 0.35,
+        "moderate_risk_max": 0.65,
+        "high_risk_min": 0.65
+    },
+    "benchmarks": {
+        "roc_auc": 0.8979,
+        "pr_auc": 0.9695,
+        "accuracy": 0.82
+    }
+}
