@@ -24,4 +24,6 @@ COPY api.py app.py pytest.ini ./
 
 EXPOSE 8000 8501 
 
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+ENV SERVICE_TYPE=api
+
+CMD ["sh", "-c", "if [ \"$SERVICE_TYPE\" = \"dashboard\" ]; then exec streamlit run app.py --server.port ${PORT:-8501} --server.address 0.0.0.0 --server.enableCORS false --server.enableXsrfProtection false; else exec uvicorn api:app --host 0.0.0.0 --port ${PORT:-8000}; fi"]

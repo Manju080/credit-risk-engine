@@ -31,6 +31,17 @@ def get_engine() -> RiskEngine:
     return _engine
 
 
+@app.get("/", tags=["General"])
+def root():
+    """Root endpoint welcoming users and directing to API documentation."""
+    return {
+        "message": "Welcome to the AI Credit Risk & Restructuring Advisory API",
+        "docs_url": "/docs",
+        "health_check": "/health",
+        "assess_endpoint": "/api/v1/assess"
+    }
+
+
 @app.get("/health", tags=["Monitoring"])
 def health_check():
     """Health and model metadata endpoint."""

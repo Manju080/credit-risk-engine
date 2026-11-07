@@ -74,6 +74,11 @@ st.caption("Probabilistic Default Risk Scoring, SHAP Factor Attribution, and Aut
 # Sidebar: Applicant Controls & Presets
 st.sidebar.header("Applicant Profile & Loan Terms")
 
+with st.sidebar.expander("☁️ Cloud Architecture & API", expanded=False):
+    st.markdown("**Live GCP Backend:** [Cloud Run API](https://credit-risk-api-266811956116.us-central1.run.app/docs)")
+    st.markdown("**API Health:** `Online (HTTP 200)`")
+    st.markdown("**Model Version:** `1.0.0-path-b`")
+
 preset = st.sidebar.selectbox(
     "Load Scenario Preset",
     ["Custom", "High Risk ($408k Car Loan)", "Prime Safe Borrower ($25k Personal)", "Borderline Moderate Risk"]

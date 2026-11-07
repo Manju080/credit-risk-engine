@@ -4,6 +4,15 @@ from api import app
 
 client = TestClient(app)
 
+def test_root_endpoint():
+    """Verify root endpoint returns welcome payload."""
+    response = client.get("/")
+    assert response.status_code == 200
+    data = response.json()
+    assert "docs_url" in data
+    assert data["docs_url"] == "/docs"
+
+
 def test_health_endpoint():
     """Verify health status, model version, and benchmarks."""
     response = client.get("/health")
