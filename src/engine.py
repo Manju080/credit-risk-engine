@@ -112,6 +112,9 @@ class RiskEngine:
         dti = round(emi / applicant.monthly_income_usd, 4)
         disposable = round(applicant.monthly_income_usd - applicant.monthly_expenses_usd - emi, 2)
 
+        if dti>0.55:
+            decision = "Declined"
+            risk_tier = "High Risk"
         # 4. SHAP Local Attribution
         preprocessor = self.pipeline.named_steps["preprocessor"]
         X_trans = preprocessor.transform(df_input)

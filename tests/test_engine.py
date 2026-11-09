@@ -48,4 +48,18 @@ def test_advisor_restructures_toxic_applicant(engine, toxic_applicant):
     assert best_opt.projected_default_prob < result.default_probability
     assert best_opt.projected_decision in ["Approved", "Manual Review"]
 
+
+def test_dti_knockout_rule(engine, prime_applicant):
+    """An applicant with otherwise good credit but DTI > 0.55 must be Declined by policy knockout."""
+    from src.schemas import ApplicantInput
+    data = prime_applicant.model_dump()
+    data["loan_amount_usd"] = 120000.0
+    data["loan_term_months"] = 24  # Results in EMI > $5,000 -> DTI > 0.55
+    high_dti_applicant = ApplicantInput(**data)
+
+    result = engine.assess_applicant(high_dti_applicant)
+    assert result.debt_to_income_ratio > 0.55
+    assert result.decision == "Declined"
+    assert result.risk_tier == "High Risk"
+
     

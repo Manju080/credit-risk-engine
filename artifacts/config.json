@@ -36,9 +36,9 @@
         "loan_interest_rate_pct"
     ],
     "thresholds": {
-        "low_risk_max": 0.35,
-        "moderate_risk_max": 0.65,
-        "high_risk_min": 0.65
+        "low_risk_max": 0.30,
+        "moderate_risk_max": 0.60,
+        "high_risk_min": 0.60
     },
     "benchmarks": {
         "roc_auc": 0.8979,
